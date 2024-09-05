@@ -1,0 +1,95 @@
+Ejercicios Prácticos: Nivelación Programación
+Instrucciones:
+•	Crear un proyecto java de nombre “Ejercicio1BootCamp_Nombre_Apellido”.
+•	Crear un package llamado “ejercicios”
+•	Para cada ejercicio se realizará una clase java la cual contendrá el método main. Dentro del método main se realizará la programación del ejercicio.
+•	Al terminar los ejercicios, crear repositorio en github y compartir link.
+Ejercicios
+1. Suma de dos números
+•	Descripción: Dados los números a = 10 y b = 20, calcula la suma de ambos y muestra el resultado.
+•	Variables: a = 10, b = 20.
+2. Producto de dos números
+•	Descripción: Dados los números a = 7 y b = 8, calcula el producto de ambos y muestra el resultado.
+•	Variables: a = 7, b = 8.
+3. Número par o impar
+•	Descripción: Dado el número a = 15, determina si es par o impar. Un número es par si es divisible por 2, y es impar si no lo es.
+•	Variables: a = 15.
+4. Números primos
+•	Descripción: Dado el número a = 29, determina si es primo. Un número primo solo tiene dos divisores: 1 y él mismo.
+•	Variables: a = 29.
+5. Máximo de tres números
+•	Descripción: Dados los números a = 5, b = 12 y c = 9, encuentra cuál de ellos es el mayor.
+•	Variables: a = 5, b = 12, c = 9.
+6. Promedio de tres números
+•	Descripción: Dados los números a = 4, b = 9 y c = 13, calcula el promedio de los tres.
+•	Variables: a = 4, b = 9, c = 13.
+7. Área de un triángulo
+•	Descripción: Dadas la base b = 5 y la altura h = 8 de un triángulo, calcula su área usando la fórmula:
+
+•	Variables: b = 5, h = 8.
+8. Conversión de temperatura
+•	Descripción: Dado que la temperatura es c = 25 grados Celsius, conviértela a Fahrenheit usando la fórmula:
+•	Variables: c = 25.
+9. Suma de los primeros N números naturales
+•	Descripción: Dado el número N = 50, calcula la suma de los primeros N números naturales. Los números naturales son los enteros positivos comenzando desde 1.
+•	Variables: N = 50.
+10. Factorial de un número
+•	Descripción: Dado el número a = 6, calcula su factorial. El factorial de un número se obtiene multiplicando todos los números desde 1 hasta el número dado.
+•	Variables: a = 6.
+11. Fibonacci
+•	Descripción: Genera los primeros N = 10 números de la secuencia de Fibonacci, donde cada número es la suma de los dos anteriores. La secuencia comienza con 0 y 1.
+•	Variables: N = 10.
+12. Inversión de un número
+•	Descripción: Dado el número a = 54321, invierte el orden de sus dígitos. El resultado sería 12345.
+•	Variables: a = 54321.
+13. Palíndromo de un número
+•	Descripción: Determina si el número a = 1221 es palíndromo, es decir, si se lee igual de izquierda a derecha que de derecha a izquierda.
+•	Variables: a = 1221.
+14. Conversión de decimal a binario
+•	Descripción: Dado el número decimal a = 45, conviértelo a binario.
+•	Variables: a = 45.
+15. Calcular el área de un círculo
+•	Descripción: Dado el radio r = 7 de un círculo, calcula su área usando la fórmula:
+•	 Variables: r = 7.
+16. Sumar dígitos de un número
+•	Descripción: Dado el número a = 5678, suma todos sus dígitos. El resultado sería 5 + 6 + 7 + 8 = 26.
+•	Variables: a = 5678.
+17. Suma de números pares en un rango
+•	Descripción: Suma todos los números pares entre a = 1 y b = 100. Un número es par si es divisible por 2.
+•	Variables: a = 1, b = 100.
+18. Calcular potencia
+•	Descripción: Dado el número a = 2 y la potencia b = 8, calcula , es decir, 2 elevado a la potencia de 8.
+•	Variables: a = 2, b = 8.
+19. Números perfectos
+•	Descripción: Determina si el número a = 28 es un número perfecto. Un número perfecto es aquel cuya suma de sus divisores (excluyendo el número mismo) es igual al número.
+•	Variables: a = 28.
+20. Número Armstrong
+•	Descripción: Determina si el número a = 153 es un número Armstrong. Un número Armstrong es igual a la suma de sus dígitos elevados a la potencia del número de dígitos. Para 153, sería
+•	Variables: a = 153.
+21. Raíz cuadrada sin usar librerías
+•	Descripción: Calcula la raíz cuadrada del número a = 49 sin usar funciones predefinidas. La raíz cuadrada de 49 es 7.
+•	Variables: a = 49.
+22. Conteo de dígitos de un número
+•	Descripción: Cuenta cuántos dígitos tiene el número a = 987654. El resultado sería 6 dígitos.
+•	Variables: a = 987654.
+23. Divisibilidad
+•	Descripción: Dado el número a = 45, determina si es divisible por 2, 3 o 5. Un número es divisible por otro si al dividir el resultado es un número entero sin resto.
+•	Variables: a = 45.
+24. Sumar los múltiplos de un número en un rango
+•	Descripción: Suma todos los múltiplos de a = 3 dentro del rango de 1 a 50. Un múltiplo de un número es el resultado de multiplicarlo por un entero.
+•	Variables: a = 3, rango de 1 a 50.
+25. Generar tabla de multiplicar
+•	Descripción: Genera la tabla de multiplicar del número a = 7.
+•	Variables: a = 7.
+26. Valor absoluto
+•	Descripción: Determina el valor absoluto del número a = -15. El valor absoluto es la distancia de un número al 0, ignorando su signo.
+•	Variables: a = -15.
+27. Intercambio de valores
+•	Descripción: Intercambia los valores de a = 5 y b = 10 sin usar una tercera variable auxiliar.
+•	Variables: a = 5, b = 10.
+28. Calcular el máximo común divisor (MCD)
+•	Descripción: Dados los números a = 48 y b = 18, calcula su MCD (máximo común divisor). El MCD es el número más grande que divide exactamente a ambos números.
+•	Variables: a = 48, b = 18.
+29. Verificar si un número es un cuadrado perfecto
+•	Descripción: Determina si el número a = 64 es un cuadrado perfecto. Un cuadrado perfecto es un número que es el resultado de multiplicar un entero por sí mismo. En este caso, 8 × 8 = 64.
+•	Variables: a = 64.
