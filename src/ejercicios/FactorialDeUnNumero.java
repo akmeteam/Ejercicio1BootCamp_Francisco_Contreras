@@ -20,7 +20,6 @@ public class FactorialDeUnNumero {
      */
     public static int calcularFactorial(int numero) {
         int factorial = 1;
-
         // El factorial se calcula utilizando un bucle for
         for (int i = 1; i <= numero; i++) {
             factorial *= i;
