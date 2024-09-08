@@ -17,7 +17,7 @@ public class SumaDeLosPrimerosNNumerosNaturales {
             // Mostrar el resultado de la suma
             System.out.println("La suma de los primeros " + N + " números naturales es: " + suma);
             // Mensaje motivacional
-            System.out.println("¡Excelente trabajo! Nos vemos pronto.");
+            System.out.println("¡Excelente trabajo!");
         }
         // Cerrar el scanner
         scanner.close();
