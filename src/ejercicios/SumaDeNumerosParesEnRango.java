@@ -23,7 +23,7 @@ public class SumaDeNumerosParesEnRango {
         // Mostrar el resultado final
         System.out.println("¡Listo! La suma de los números pares entre " + a + " y " + b + " es: " + sumaPares);
         // Mensaje de despedida
-        System.out.println("¡Gracias por usar el sumador de números pares! Hasta la próxima.");
+        System.out.println("¡Gracias por usar el sumador de números pares!");
         // Cerrar el escáner
         scanner.close();
     }
