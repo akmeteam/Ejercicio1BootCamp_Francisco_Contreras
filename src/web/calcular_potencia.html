@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cálculo de Potencia</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        label {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        input {
+            margin-top: 5px;
+            padding: 10px;
+            width: 200px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        button {
+            margin-top: 15px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #resultado {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #28a745;
+            font-weight: bold;
+        }
+    </style>
+    <script>
+        function calcularPotencia() {
+            // Obtener los valores de base y exponente desde los inputs
+            let base = parseInt(document.getElementById("base").value);
+            let exponente = parseInt(document.getElementById("exponente").value);
+            // Calcular la potencia
+            let resultado = 1;
+            if (exponente === 0) {
+                resultado = 1; // Cualquier número elevado a 0 es 1
+            } else {
+                for (let i = 0; i < exponente; i++) {
+                    resultado *= base;
+                }
+            }
+            // Mostrar el resultado
+            document.getElementById("resultado").innerText = base + " elevado a la " + exponente + " es: " + resultado;
+        }
+    </script>
+</head>
+<body>
+    <h1>Cálculo de Potencia</h1>
+    <label for="base">Ingrese la base:</label>
+    <input type="number" id="base" required>
+    <label for="exponente">Ingrese el exponente:</label>
+    <input type="number" id="exponente" required>
+    <button onclick="calcularPotencia()">Calcular Potencia</button>
+    <p id="resultado"></p>
+</body>
+</html>

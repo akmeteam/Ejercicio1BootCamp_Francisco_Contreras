@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Números Perfectos</title>
+  <style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #2e2e2e;
+        color: white;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+    }
+
+    .container {
+        background-color: #1e3a3a;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        text-align: center;
+        width: 80%;
+        max-width: 600px;
+    }
+
+    h1 {
+        color: #aad1ad;
+    }
+
+    .input-container {
+        margin: 20px 0;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    input[type="number"] {
+        padding: 10px;
+        border: 1px solid #aad1ad;
+        border-radius: 5px;
+        width: calc(100% - 24px);
+        box-sizing: border-box;
+        margin-bottom: 10px;
+    }
+
+    button {
+        background-color: #2a652a;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 20px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #225522;
+    }
+
+    #resultado {
+        margin-top: 20px;
+        font-size: 18px;
+        color: #aad1ad;
+    }
+
+    .proceso {
+        margin-top: 20px;
+        font-size: 16px;
+        text-align: left;
+    }
+
+    .proceso div {
+        margin-bottom: 5px;
+    }
+  </style>
+</head>
+
+<body>
+<div class="container">
+  <h1>Números Perfectos</h1>
+  <div class="input-container">
+    <label for="numero">Ingrese un número para verificar si es un número perfecto:</label>
+    <input type="number" id="numero" required>
+    <button onclick="verificarNumeroPerfecto()">Verificar</button>
+  </div>
+  <div id="resultado"></div>
+  <div id="proceso" class="proceso"></div>
+</div>
+<script>
+  function verificarNumeroPerfecto() {
+      const numero = parseInt(document.getElementById('numero').value);
+      const resultadoDiv = document.getElementById('resultado');
+      const procesoDiv = document.getElementById('proceso');
+
+      if (isNaN(numero) || numero <= 0) {
+          resultadoDiv.textContent = "Por favor, ingrese un número válido.";
+          return;
+      }
+
+      resultadoDiv.textContent = "";
+      procesoDiv.innerHTML = "";
+
+      let sumaDivisores = 0;
+
+      function calcularDivisores(i) {
+          if (i <= numero / 2) {
+              if (numero % i === 0) {
+                  sumaDivisores += i;
+                  procesoDiv.innerHTML += `<div>Divisor: ${i}, Suma de divisores actual: ${sumaDivisores}</div>`;
+              }
+              setTimeout(() => calcularDivisores(i + 1), 1000); // Pausa de 1 segundo para efecto de animación
+          } else {
+              if (sumaDivisores === numero) {
+                  resultadoDiv.textContent = `${numero} es un número perfecto.`;
+              } else {
+                  resultadoDiv.textContent = `${numero} no es un número perfecto.`;
+              }
+          }
+      }
+
+      calcularDivisores(1);
+  }
+</script>
+</body>
+
+</html>

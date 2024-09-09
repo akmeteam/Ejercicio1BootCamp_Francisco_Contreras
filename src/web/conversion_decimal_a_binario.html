@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversión de Decimal a Binario</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        label {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        input {
+            margin-top: 5px;
+            padding: 10px;
+            width: 200px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        button {
+            margin-top: 15px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #resultado {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #28a745;
+            font-weight: bold;
+        }
+
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+    </style>
+    <script>
+        function convertirADecimal() {
+            // Obtener el número decimal desde el input
+            let decimal = parseInt(document.getElementById("decimal").value);
+            if (isNaN(decimal) || decimal < 0) {
+                alert("Por favor, ingresa un número decimal válido.");
+                return;
+            }
+            // Calcular la conversión a binario
+            let binario = decimal.toString(2);
+            // Mostrar el resultado
+            document.getElementById("resultado").innerText = "El número decimal " + decimal + " en binario es: " + binario;
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Conversión de Decimal a Binario</h1>
+        <label for="decimal">Ingrese un número decimal:</label>
+        <input type="number" id="decimal" required>
+        <button onclick="convertirADecimal()">Convertir a Binario</button>
+        <p id="resultado"></p>
+    </div>
+</body>
+</html>
