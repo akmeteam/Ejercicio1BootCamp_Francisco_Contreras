@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Suma de los Primeros N Números Naturales</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #e0f7fa;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      text-align: center;
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+      max-width: 400px;
+      width: 100%;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      color: #00796b;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    input {
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #b2dfdb;
+      border-radius: 5px;
+    }
+
+    button {
+      padding: 10px;
+      font-size: 16px;
+      background: #00796b;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #004d40;
+    }
+
+    #result {
+      margin-top: 20px;
+      font-size: 18px;
+      color: #004d40;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h1>Suma de los Primeros N Números Naturales</h1>
+  <form id="sumForm">
+    <label for="num">¿Cuántos números naturales deseas sumar? Ingresa un número:</label>
+    <input type="number" id="num" required min="1">
+    <button type="submit">Calcular Suma</button>
+  </form>
+  <div id="result"></div>
+</div>
+<script>
+  document.getElementById('sumForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const num = parseInt(document.getElementById('num').value);
+
+    if (num < 1) {
+      alert("Por favor, ingresa un número natural mayor que 0.");
+      return;
+    }
+
+    const suma = num * (num + 1) / 2;
+
+    const resultDiv = document.getElementById('result');
+    resultDiv.innerHTML = `
+                <p>La suma de los primeros ${num} números naturales es: <strong>${suma}</strong></p>
+                <p>¡Excelente trabajo!</p>
+            `;
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sumador de Números Pares</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h1 {
+            color: #444;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #666;
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #888;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #555;
+        }
+
+        #resultado {
+            margin-top: 20px;
+            font-weight: bold;
+            color: #444;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>¡Bienvenido al sumador de números pares!</h1>
+    <form id="sumador-form">
+        <div class="form-group">
+            <label for="limite-inferior">Límite Inferior del Rango:</label>
+            <input type="number" id="limite-inferior" required>
+        </div>
+        <div class="form-group">
+            <label for="limite-superior">Límite Superior del Rango:</label>
+            <input type="number" id="limite-superior" required>
+        </div>
+        <button type="submit">Calcular Suma</button>
+    </form>
+    <div id="resultado"></div>
+</div>
+<script>
+    document.getElementById('sumador-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const limiteInferior = parseInt(document.getElementById('limite-inferior').value);
+        const limiteSuperior = parseInt(document.getElementById('limite-superior').value);
+        if (isNaN(limiteInferior) || isNaN(limiteSuperior)) {
+            alert('Por favor, ingrese valores numéricos válidos.');
+            return;
+        }
+
+        let sumaPares = 0;
+        for (let i = limiteInferior; i <= limiteSuperior; i++) {
+            if (i % 2 === 0) {
+                sumaPares += i;
+            }
+        }
+
+        document.getElementById('resultado').innerText =
+        `¡Listo! La suma de los números pares entre ${limiteInferior} y ${limiteSuperior} es: ${sumaPares}`;
+    });
+</script>
+</body>
+</html>

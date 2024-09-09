@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculador de Valor Absoluto</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #282c34;
+      color: #ffffff;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .container {
+      max-width: 600px;
+      width: 100%;
+      background-color: #3c4042;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      text-align: center;
+    }
+    h1 {
+      color: #61dafb;
+    }
+    input[type="number"], input[type="text"] {
+      width: calc(100% - 22px);
+      padding: 10px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 5px;
+      background-color: #52575d;
+      color: #ffffff;
+      font-size: 16px;
+    }
+    button {
+      width: calc(100% - 22px);
+      padding: 10px;
+      background-color: #61dafb;
+      border: none;
+      border-radius: 5px;
+      color: #282c34;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    button:hover {
+      background-color: #21a1f1;
+    }
+    .result {
+      margin-top: 20px;
+      padding: 15px;
+      background-color: #52575d;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h1>¡Bienvenido al calculador de valor absoluto!</h1>
+  <p>Ingresa un número entero:</p>
+  <input type="text" id="numero" placeholder="Número entero" />
+  <button onclick="calcularValorAbsoluto()">Calcular valor absoluto</button>
+  <div class="result" id="resultado"></div>
+</div>
+
+<script>
+  function calcularValorAbsoluto() {
+    const input = document.getElementById('numero').value;
+    const resultadoDiv = document.getElementById('resultado');
+
+    // Opción para salir del programa
+    if (input.toLowerCase() === 'salir') {
+      resultadoDiv.innerHTML = '¡Gracias por usar el calculador de valor absoluto! Hasta la próxima.';
+      return;
+    }
+
+    // Validar que el input sea un número
+    const numero = parseInt(input);
+    if (isNaN(numero)) {
+      resultadoDiv.innerHTML = 'Por favor, ingresa un número entero válido.';
+      return;
+    }
+
+    // Usando la función Math.abs()
+    const valorAbsolutoMath = Math.abs(numero);
+    // Implementando el valor absoluto de forma personalizada
+    const valorAbsolutoPersonalizado = (numero < 0) ? -numero : numero;
+
+    resultadoDiv.innerHTML = `
+                <p>El valor absoluto de ${numero} usando Math.abs() es: ${valorAbsolutoMath}</p>
+                <p>El valor absoluto de ${numero} calculado de forma personalizada es: ${valorAbsolutoPersonalizado}</p>
+            `;
+  }
+</script>
+</body>
+</html>
