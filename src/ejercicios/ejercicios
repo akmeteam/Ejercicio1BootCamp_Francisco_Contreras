@@ -4,7 +4,9 @@ Instrucciones:
 •	Crear un package llamado “ejercicios”
 •	Para cada ejercicio se realizará una clase java la cual contendrá el método main. Dentro del método main se realizará la programación del ejercicio.
 •	Al terminar los ejercicios, crear repositorio en github y compartir link.
+
 Ejercicios
+
 1. Suma de dos números
 •	Descripción: Dados los números a = 10 y b = 20, calcula la suma de ambos y muestra el resultado.
 •	Variables: a = 10, b = 20.
