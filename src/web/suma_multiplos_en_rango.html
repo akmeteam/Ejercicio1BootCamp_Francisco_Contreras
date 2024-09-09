@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sumador de Múltiplos</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .container {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      max-width: 400px;
+      width: 100%;
+      text-align: center;
+    }
+    input {
+      width: calc(100% - 22px);
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #007BFF;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    .result {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h1>Sumador de Múltiplos</h1>
+  <p>Por favor, ingresa el número del cual deseas sumar los múltiplos:</p>
+  <input type="number" id="numero" placeholder="Número">
+  <p>Ingresa el límite inferior del rango:</p>
+  <input type="number" id="rangoInicio" placeholder="Límite inferior">
+  <p>Ingresa el límite superior del rango:</p>
+  <input type="number" id="rangoFin" placeholder="Límite superior">
+  <button onclick="calcularSuma()">Calcular Suma</button>
+  <div class="result" id="resultado"></div>
+</div>
+
+<script>
+  function calcularSuma() {
+    const numero = parseInt(document.getElementById('numero').value);
+    const rangoInicio = parseInt(document.getElementById('rangoInicio').value);
+    const rangoFin = parseInt(document.getElementById('rangoFin').value);
+    let suma = 0;
+    let sumaDetalles = "";
+
+    for (let i = rangoInicio; i <= rangoFin; i++) {
+      if (i % numero === 0) {
+        suma += i;
+        sumaDetalles += `Sumando el múltiplo: ${i}<br>`;
+      }
+    }
+
+    document.getElementById('resultado').innerHTML = `
+                <p>Suma de los múltiplos de ${numero} entre ${rangoInicio} y ${rangoFin}:</p>
+                <p>${sumaDetalles}</p>
+                <p><strong>Total: ${suma}</strong></p>
+                <p>¡Gracias por usar el sumador de múltiplos! Hasta la próxima.</p>
+            `;
+  }
+</script>
+</body>
+</html>

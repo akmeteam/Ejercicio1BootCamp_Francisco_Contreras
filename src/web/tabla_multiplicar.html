@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador de Tablas de Multiplicar</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212; /* Fondo negro */
+            color: #ffffff; /* Texto blanco */
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #2c2c2c; /* Fondo gris oscuro */
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+        h1, h2 {
+            text-align: center;
+            color: #ffffff; /* Texto blanco */
+        }
+        input[type="number"], input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 4px;
+            box-sizing: border-box;
+            background-color: #424242; /* Fondo gris medio */
+            color: white;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            background-color: #616161; /* Botón gris */
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #9e9e9e; /* Botón gris claro al pasar el cursor */
+        }
+        .result {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 1em;
+            background-color: #1e1e1e; /* Fondo casi negro para los resultados */
+            padding: 20px;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>¡Bienvenido al generador de tablas de multiplicar!</h1>
+    <p>Ingresa el número del cual deseas ver la tabla de multiplicar:</p>
+    <input type="number" id="numero" placeholder="Número" />
+    <p>¿Hasta qué número deseas multiplicar?</p>
+    <input type="number" id="limite" placeholder="Límite"/>
+    <button onclick="generarTabla()">Generar tabla</button>
+    <div class="result" id="resultado"></div>
+</div>
+
+<script>
+    function generarTabla() {
+        const numero = parseInt(document.getElementById('numero').value);
+        const limite = parseInt(document.getElementById('limite').value);
+
+        if (isNaN(numero) || isNaN(limite)) {
+            alert("Por favor ingresa números válidos.");
+            return;
+        }
+
+        let resultado = `<h2>Tabla de multiplicar del ${numero}:</h2>`;
+        for (let i = 1; i <= limite; i++) {
+            resultado += `<p>${numero} x ${i} = ${numero * i}</p>`;
+        }
+
+        document.getElementById('resultado').innerHTML = resultado;
+    }
+</script>
+</body>
+</html>

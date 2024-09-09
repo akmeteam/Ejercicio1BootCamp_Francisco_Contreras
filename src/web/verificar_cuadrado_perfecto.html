@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificador de Cuadrados Perfectos</title>
+    <!-- Agregar Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            color: #343a40;
+        }
+        .container {
+            margin-top: 50px;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .title {
+            color: #007bff;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1 class="title text-center">¡Bienvenido al verificador de cuadrados perfectos!</h1>
+    <form>
+        <div class="form-group">
+            <label for="numero">Ingresa un número entero positivo:</label>
+            <input type="text" class="form-control" id="numero" placeholder="Número entero positivo">
+        </div>
+        <button type="button" class="btn btn-primary btn-block" onclick="verificarCuadradoPerfecto()">Verificar</button>
+    </form>
+    <div class="result" id="resultado"></div>
+</div>
+
+<!-- Agregar jQuery y Bootstrap JS -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+    function verificarCuadradoPerfecto() {
+        const input = document.getElementById('numero').value;
+        const resultadoDiv = document.getElementById('resultado');
+
+        // Opción para salir del programa
+        if (input.toLowerCase() === 'salir') {
+            resultadoDiv.className = "result alert alert-info";
+            resultadoDiv.innerHTML = '¡Gracias por usar el verificador de cuadrados perfectos! Hasta la próxima.';
+            return;
+        }
+
+        // Validar que el input sea un número
+        const numero = parseInt(input);
+        if (isNaN(numero) || numero < 0) {
+            resultadoDiv.className = "result alert alert-danger";
+            resultadoDiv.innerHTML = 'Por favor, ingresa un número entero positivo válido.';
+            return;
+        }
+
+        // Calcular la raíz cuadrada
+        const raizCuadrada = Math.sqrt(numero);
+
+        // Verificar si es un cuadrado perfecto
+        if (raizCuadrada === Math.floor(raizCuadrada)) {
+            resultadoDiv.className = "result alert alert-success";
+            resultadoDiv.innerHTML = `¡Felicidades! ${numero} es un cuadrado perfecto. Su raíz cuadrada es ${Math.floor(raizCuadrada)}.`;
+        } else {
+            resultadoDiv.className = "result alert alert-warning";
+            resultadoDiv.innerHTML = `Lo siento, ${numero} no es un cuadrado perfecto. Su raíz cuadrada es aproximadamente ${raizCuadrada.toFixed(2)}.`;
+        }
+    }
+</script>
+</body>
+</html>
