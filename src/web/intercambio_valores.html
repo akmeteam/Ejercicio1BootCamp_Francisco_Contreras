@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intercambio de Valores</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1e1e1e; /* Fondo oscuro */
+            color: #ffffff; /* Texto blanco */
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            color: #61dafb; /* Color azul claro para el título */
+            margin-bottom: 20px;
+        }
+
+        label {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        input {
+            margin-top: 5px;
+            padding: 10px;
+            width: 200px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            background-color: #444; /* Fondo del input */
+            color: #ffffff; /* Texto blanco para el input */
+        }
+
+        button {
+            margin-top: 15px;
+            padding: 10px 20px;
+            background-color: #61dafb; /* Color azul claro */
+            color: black;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #21a1f1; /* Color azul más oscuro al pasar el ratón */
+        }
+
+        #resultado {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #28a745; /* Color verde para el resultado */
+            font-weight: bold;
+            white-space: pre-wrap; /* Mantener espacios en blanco */
+        }
+
+        .container {
+            background: #333; /* Fondo gris oscuro para el contenedor */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(255, 255, 255, 0.1);
+            text-align: center;
+        }
+    </style>
+    <script>
+        function intercambiarValores() {
+            // Obtener los valores de entrada
+            let a = parseInt(document.getElementById("valorA").value);
+            let b = parseInt(document.getElementById("valorB").value);
+            if (isNaN(a) || isNaN(b)) {
+                alert("Por favor, ingresa valores válidos.");
+                return;
+            }
+
+            // Mostrar valores antes del intercambio
+            let resultado = `Antes del intercambio: a = ${a}, b = ${b}\n\nProceso de intercambio:\n`;
+            resultado += mostrarProcesoIntercambio(a, b);
+
+            // Realizar el intercambio
+            [a, b] = intercambiar(a, b);
+
+            // Mostrar valores después del intercambio
+            resultado += `\nDespués del intercambio: a = ${a}, b = ${b}`;
+            document.getElementById("resultado").innerText = resultado;
+        }
+
+        function intercambiar(a, b) {
+            a = a + b;
+            b = a - b;
+            a = a - b;
+            return [a, b];
+        }
+
+        function mostrarProcesoIntercambio(a, b) {
+            let steps = "";
+            steps += `Paso 1: a = a + b -> a = ${a} + ${b} -> a = ${a + b}\n`;
+            a = a + b;
+            steps += `Paso 2: b = a - b -> b = ${a} - ${b} -> b = ${a - b}\n`;
+            b = a - b;
+            steps += `Paso 3: a = a - b -> a = ${a} - ${b} -> a = ${a - b}\n`;
+            a = a - b;
+            return steps;
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Intercambio de Valores</h1>
+        <label for="valorA">Ingrese el valor de a:</label>
+        <input type="number" id="valorA" required>
+        <label for="valorB">Ingrese el valor de b:</label>
+        <input type="number" id="valorB" required>
+        <button onclick="intercambiarValores()">Intercambiar Valores</button>
+        <p id="resultado"></p>
+    </div>
+</body>
+</html>

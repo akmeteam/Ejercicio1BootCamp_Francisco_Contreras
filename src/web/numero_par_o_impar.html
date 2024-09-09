@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cálculo del MCD</title>
+    <title>Número Par o Impar</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -88,38 +88,38 @@
         }
     </style>
     <script>
-        async function encontrarMCD() {
-            // Obtener los números desde los inputs
-            let a = parseInt(document.getElementById("numeroA").value);
-            let b = parseInt(document.getElementById("numeroB").value);
-            if (isNaN(a) || isNaN(b) || a === "" || b === "") {
-                alert("Por favor, ingresa valores válidos.");
+        async function verificarParOImpar() {
+            // Obtener el número desde el input
+            let numero = parseInt(document.getElementById("numero").value);
+            if (isNaN(numero)) {
+                alert("Por favor, ingresa un número válido.");
                 return;
             }
 
-            let resultado = "Calculando el MCD...\n";
-            while (b !== 0) {
-                resultado += `Calculando: a = ${a}, b = ${b}\n`;
-                await new Promise(resolve => setTimeout(resolve, 2000)); // Pausa de 2 segundos
-                let temp = b;
-                b = a % b;
-                a = temp;
-            }
+            document.getElementById("resultado").innerText = "Verificando...\n";
 
-            // Mostrar el resultado
-            resultado += `\nEl MCD es: ${a}`;
-            document.getElementById("resultado").innerText = resultado;
+            // Visualización animada
+            for (let i = 3; i > 0; i--) {
+                await new Promise(resolve => setTimeout(resolve, 1000)); // Pausa de 1 segundo
+                document.getElementById("resultado").innerText += i + " ";
+            }
+            document.getElementById("resultado").innerText += "...!\n";
+
+            // Verificar si es par o impar
+            if (numero % 2 === 0) {
+                document.getElementById("resultado").innerText += `${numero} es un número par.`;
+            } else {
+                document.getElementById("resultado").innerText += `${numero} es un número impar.`;
+            }
         }
     </script>
 </head>
 <body>
     <div class="container">
-        <h1>Cálculo del MCD</h1>
-        <label for="numeroA">Ingrese el primer número (a):</label>
-        <input type="number" id="numeroA" required>
-        <label for="numeroB">Ingrese el segundo número (b):</label>
-        <input type="number" id="numeroB" required>
-        <button onclick="encontrarMCD()">Calcular MCD</button>
+        <h1>Número Par o Impar</h1>
+        <label for="numero">Ingrese un número:</label>
+        <input type="number" id="numero" required>
+        <button onclick="verificarParOImpar()">Verificar</button>
         <pre id="resultado"></pre>
     </div>
 </body>
