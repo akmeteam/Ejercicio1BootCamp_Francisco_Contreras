@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Verificación de Palíndromo de un Número</title>
+  <style>
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f0f4f7;
+        color: #333;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+    }
+
+    .container {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        text-align: center;
+        width: 80%;
+        max-width: 600px;
+    }
+
+    h1 {
+        color: #5e9ca0;
+    }
+
+    .input-container {
+        margin: 20px 0;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 10px;
+        font-weight: bold;
+    }
+
+    input[type="number"] {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        width: calc(100% - 22px);
+        box-sizing: border-box;
+        margin-bottom: 10px;
+    }
+
+    button {
+        background-color: #5e9ca0;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 20px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    button:hover {
+        background-color: #4a7d7f;
+    }
+
+    #resultado {
+        margin-top: 20px;
+        font-size: 18px;
+        color: #444;
+    }
+
+    .proceso {
+        margin-top: 20px;
+        font-size: 16px;
+        text-align: left;
+    }
+
+    .proceso div {
+        margin-bottom: 5px;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h1>Verificación de Palíndromo</h1>
+  <div class="input-container">
+    <label for="numero">Ingrese un número para verificar si es palíndromo:</label>
+    <input type="number" id="numero" required>
+    <button onclick="verificarPalindromo()">Verificar</button>
+  </div>
+  <div id="resultado"></div>
+  <div id="proceso" class="proceso"></div>
+</div>
+<script>
+  function verificarPalindromo() {
+      const numero = parseInt(document.getElementById('numero').value);
+      const resultadoDiv = document.getElementById('resultado');
+      const procesoDiv = document.getElementById('proceso');
+
+      if (isNaN(numero)) {
+          resultadoDiv.textContent = "Por favor, ingrese un número válido.";
+          return;
+      }
+
+      resultadoDiv.textContent = "";
+      procesoDiv.innerHTML = "";
+
+      let numeroOriginal = numero;
+      let numeroInvertido = 0;
+
+      function invertirNumero(numero) {
+          if (numero !== 0) {
+              let digito = numero % 10;
+              numeroInvertido = numeroInvertido * 10 + digito;
+              procesoDiv.innerHTML += `<div>Dígito: ${digito}, Número invertido actual: ${numeroInvertido}</div>`;
+              setTimeout(() => invertirNumero(Math.floor(numero / 10)), 1000); // Pausa de 1 segundo para efecto de animación
+          } else {
+              if (numeroOriginal === numeroInvertido) {
+                  resultadoDiv.textContent = `${numeroOriginal} es un palíndromo.`;
+              } else {
+                  resultadoDiv.textContent = `${numeroOriginal} no es un palíndromo.`;
+              }
+          }
+      }
+
+      invertirNumero(numero);
+  }
+</script>
+</body>
+</html>
