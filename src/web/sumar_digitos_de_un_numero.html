@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sumador de Dígitos</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f8ff; /* Fondo azul claro */
+      color: #333;
+    }
+    .container {
+      max-width: 600px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: #e6f2ff; /* Fondo azul más oscuro */
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h1, h2 {
+      text-align: center;
+      color: #00509e; /* Tono azul oscuro */
+    }
+    input[type="number"] {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #b3d7ff; /* Tono azul claro */
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #00509e; /* Botón azul oscuro */
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #003f7f; /* Botón azul aún más oscuro */
+    }
+    .result {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 1.2em;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h1>¡Bienvenido al sumador de dígitos!</h1>
+  <p>Por favor, ingresa un número entero positivo:</p>
+  <input type="number" id="numero" />
+  <button onclick="sumarDigitos()">Calcular suma de dígitos</button>
+  <div class="result" id="resultado"></div>
+</div>
+
+<script>
+  function sumarDigitos() {
+    const numero = document.getElementById('numero').value;
+    let suma = 0;
+    let numeroOriginal = numero;
+
+    if (numero < 0 || isNaN(numero)) {
+      alert("Por favor ingrese un número entero positivo.");
+      return;
+    }
+
+    let temp = parseInt(numero, 10);
+
+    while (temp != 0) {
+      let digito = temp % 10;
+      suma += digito;
+      temp = Math.floor(temp / 10);
+    }
+
+    document.getElementById('resultado').innerText = `¡Listo! La suma de los dígitos de ${numeroOriginal} es: ${suma}`;
+  }
+</script>
+</body>
+</html>

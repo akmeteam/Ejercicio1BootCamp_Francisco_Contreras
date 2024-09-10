@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Promedio de Tres Números</title>
+  <style>
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #e0f7fa;
+        color: #333;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+    }
+
+    .container {
+        background-color: #0277bd;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        text-align: center;
+        width: 80%;
+        max-width: 600px;
+    }
+
+    h1 {
+        color: #ffffff;
+    }
+
+    .input-container {
+        margin: 20px 0;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 10px;
+        font-weight: bold;
+        color: #ffffff;
+    }
+
+    input[type="number"] {
+        padding: 10px;
+        border: 1px solid #ffffff;
+        border-radius: 5px;
+        width: calc(100% - 22px);
+        box-sizing: border-box;
+        margin-bottom: 10px;
+    }
+
+    button {
+        background-color: #01579b;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 20px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    button:hover {
+        background-color: #013a63;
+    }
+
+    #resultado {
+        margin-top: 20px;
+        font-size: 18px;
+        color: #ffffff;
+    }
+
+    .proceso {
+        margin-top: 20px;
+        font-size: 16px;
+        text-align: left;
+        color: #ffffff;
+    }
+
+    .proceso div {
+        margin-bottom: 5px;
+    }
+  </style>
+</head>
+
+<body>
+<div class="container">
+  <h1>Promedio de Tres Números</h1>
+  <div class="input-container">
+    <label for="numero1">Ingrese el primer número:</label>
+    <input type="number" id="numero1" required>
+    <label for="numero2">Ingrese el segundo número:</label>
+    <input type="number" id="numero2" required>
+    <label for="numero3">Ingrese el tercer número:</label>
+    <input type="number" id="numero3" required>
+    <button onclick="calcularPromedio()">Calcular Promedio</button>
+  </div>
+  <div id="resultado"></div>
+  <div id="proceso" class="proceso"></div>
+</div>
+<script>
+  function calcularPromedio() {
+      const numero1 = parseInt(document.getElementById('numero1').value);
+      const numero2 = parseInt(document.getElementById('numero2').value);
+      const numero3 = parseInt(document.getElementById('numero3').value);
+      const resultadoDiv = document.getElementById('resultado');
+      const procesoDiv = document.getElementById('proceso');
+
+      if (isNaN(numero1) || isNaN(numero2) || isNaN(numero3)) {
+          resultadoDiv.textContent = "Por favor, ingrese números válidos.";
+          return;
+      }
+
+      resultadoDiv.textContent = "";
+      procesoDiv.innerHTML = "";
+
+      let suma = 0;
+
+      function animarCalculo(paso) {
+          if (paso === 1) {
+              suma += numero1;
+              procesoDiv.innerHTML += `<div>Sumando ${numero1}</div>`;
+              setTimeout(() => animarCalculo(paso + 1), 1000);
+          } else if (paso === 2) {
+              suma += numero2;
+              procesoDiv.innerHTML += `<div>Sumando ${numero2}</div>`;
+              setTimeout(() => animarCalculo(paso + 1), 1000);
+          } else if (paso === 3) {
+              suma += numero3;
+              procesoDiv.innerHTML += `<div>Sumando ${numero3}</div>`;
+              setTimeout(() => {
+                  procesoDiv.innerHTML += `<div>Total de la suma: ${suma}</div>`;
+                  let promedio = suma / 3;
+                  resultadoDiv.textContent = `El promedio de ${numero1}, ${numero2}, y ${numero3} es: ${promedio.toFixed(2)}`;
+              }, 1000);
+          }
+      }
+
+      animarCalculo(1);
+  }
+</script>
+</body>
+
+</html>

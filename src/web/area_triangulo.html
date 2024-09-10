@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cálculo del Área de un Triángulo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        label {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        input {
+            margin-top: 5px;
+            padding: 10px;
+            width: 200px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        button {
+            margin-top: 15px;
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        #resultado {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #007bff;
+            font-weight: bold;
+        }
+    </style>
+    <script>
+        function calcularArea() {
+            // Obtener los valores de la base y la altura desde los inputs
+            let base = parseFloat(document.getElementById("base").value);
+            let altura = parseFloat(document.getElementById("altura").value);
+            // Calcular el área
+            let area = (base * altura) / 2;
+            // Mostrar el resultado
+            document.getElementById("resultado").innerText = "El área del triángulo es: " + area;
+        }
+    </script>
+</head>
+<body>
+    <h1>Cálculo del Área de un Triángulo</h1>
+    <label for="base">Ingrese la base del triángulo:</label>
+    <input type="number" id="base" required>
+    <label for="altura">Ingrese la altura del triángulo:</label>
+    <input type="number" id="altura" required>
+    <button onclick="calcularArea()">Calcular Área</button>
+    <p id="resultado"></p>
+</body>
+</html>

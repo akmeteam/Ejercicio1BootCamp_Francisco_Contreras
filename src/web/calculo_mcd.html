@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cálculo del MCD</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #001f3f; /* Fondo azul oscuro */
+            color: #ffffff; /* Texto blanco */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        .container {
+            background: rgba(0, 50, 100, 0.8); /* Fondo azul oscuro con opacidad */
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            width: 90%;
+            max-width: 400px; /* Ancho máximo para pantallas grandes */
+        }
+
+        h1 {
+            color: #ffcc00; /* Color amarillo para el título */
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        label {
+            margin-top: 10px;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input {
+            margin-top: 5px;
+            padding: 10px;
+            width: calc(100% - 20px); /* Ajustar el ancho para el padding */
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            background-color: #003366; /* Fondo de input azul más claro */
+            color: #ffffff; /* Texto blanco para el input */
+            transition: background-color 0.3s;
+        }
+
+        input:focus {
+            background-color: #004080; /* Fondo más claro al enfocar */
+            outline: none; /* Sin borde de enfoque */
+        }
+
+        button {
+            margin-top: 15px;
+            padding: 10px;
+            background-color: #ffcc00; /* Color amarillo para el botón */
+            color: black;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            width: 100%; /* Botón ocupa todo el ancho */
+        }
+
+        button:hover {
+            background-color: #ffd700; /* Color amarillo más oscuro al pasar el ratón */
+            transform: translateY(-2px); /* Efecto de elevación */
+        }
+
+        button:active {
+            transform: translateY(0); /* Efecto de presionar */
+        }
+
+        #resultado {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #28a745; /* Color verde para el resultado */
+            font-weight: bold;
+            white-space: pre-wrap; /* Mantener espacios en blanco */
+        }
+    </style>
+    <script>
+        async function encontrarMCD() {
+            // Obtener los números desde los inputs
+            let a = parseInt(document.getElementById("numeroA").value);
+            let b = parseInt(document.getElementById("numeroB").value);
+            if (isNaN(a) || isNaN(b) || a === "" || b === "") {
+                alert("Por favor, ingresa valores válidos.");
+                return;
+            }
+
+            let resultado = "Calculando el MCD...\n";
+            while (b !== 0) {
+                resultado += `Calculando: a = ${a}, b = ${b}\n`;
+                await new Promise(resolve => setTimeout(resolve, 2000)); // Pausa de 2 segundos
+                let temp = b;
+                b = a % b;
+                a = temp;
+            }
+
+            // Mostrar el resultado
+            resultado += `\nEl MCD es: ${a}`;
+            document.getElementById("resultado").innerText = resultado;
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Cálculo del MCD</h1>
+        <label for="numeroA">Ingrese el primer número (a):</label>
+        <input type="number" id="numeroA" required>
+        <label for="numeroB">Ingrese el segundo número (b):</label>
+        <input type="number" id="numeroB" required>
+        <button onclick="encontrarMCD()">Calcular MCD</button>
+        <pre id="resultado"></pre>
+    </div>
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Máximo de Tres Números</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #001f3f; /* Fondo azul oscuro */
+            color: #ffffff; /* Texto blanco */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        .container {
+            background: rgba(0, 50, 100, 0.8); /* Fondo azul oscuro con opacidad */
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            width: 300px;
+        }
+
+        h1 {
+            color: #ffcc00; /* Color amarillo para el título */
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        label {
+            margin-top: 10px;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input {
+            margin-top: 5px;
+            padding: 10px;
+            width: calc(100% - 20px); /* Ajustar el ancho para el padding */
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            background-color: #003366; /* Fondo de input azul más claro */
+            color: #ffffff; /* Texto blanco para el input */
+            transition: background-color 0.3s;
+        }
+
+        input:focus {
+            background-color: #004080; /* Fondo más claro al enfocar */
+            outline: none; /* Sin borde de enfoque */
+        }
+
+        button {
+            margin-top: 15px;
+            padding: 10px;
+            background-color: #ffcc00; /* Color amarillo para el botón */
+            color: black;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            width: 100%; /* Botón ocupa todo el ancho */
+        }
+
+        button:hover {
+            background-color: #ffd700; /* Color amarillo más oscuro al pasar el ratón */
+            transform: translateY(-2px); /* Efecto de elevación */
+        }
+
+        button:active {
+            transform: translateY(0); /* Efecto de presionar */
+        }
+
+        #resultado {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #28a745; /* Color verde para el resultado */
+            font-weight: bold;
+            white-space: pre-wrap; /* Mantener espacios en blanco */
+        }
+    </style>
+    <script>
+        function encontrarMaximo() {
+            // Obtener los números desde los inputs
+            let a = parseInt(document.getElementById("numeroA").value);
+            let b = parseInt(document.getElementById("numeroB").value);
+            let c = parseInt(document.getElementById("numeroC").value);
+            if (isNaN(a) || isNaN(b) || isNaN(c) || a === "" || b === "" || c === "") {
+                alert("Por favor, ingresa valores válidos.");
+                return;
+            }
+
+            let maximo = a;
+            let resultado = "\nComparando números...\n";
+
+            // Comparar a y b
+            resultado += `Comparando ${a} y ${b}: `;
+            if (b > maximo) {
+                maximo = b;
+                resultado += `${b} es mayor\n`;
+            } else {
+                resultado += `${a} es mayor\n`;
+            }
+
+            // Comparar maximo y c
+            resultado += `Comparando ${maximo} y ${c}: `;
+            if (c > maximo) {
+                maximo = c;
+                resultado += `${c} es mayor\n`;
+            } else {
+                resultado += `${maximo} es mayor\n`;
+            }
+
+            // Mostrar el resultado
+            resultado += `\nEl número mayor es: ${maximo}`;
+            document.getElementById("resultado").innerText = resultado;
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Máximo de Tres Números</h1>
+        <label for="numeroA">Ingrese el primer número (a):</label>
+        <input type="number" id="numeroA" required>
+        <label for="numeroB">Ingrese el segundo número (b):</label>
+        <input type="number" id="numeroB" required>
+        <label for="numeroC">Ingrese el tercer número (c):</label>
+        <input type="number" id="numeroC" required>
+        <button onclick="encontrarMaximo()">Encontrar Máximo</button>
+        <pre id="resultado"></pre>
+    </div>
+</body>
+</html>

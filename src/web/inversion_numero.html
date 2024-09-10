@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inversión de un Número</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212; /* Fondo oscuro */
+            color: #ffffff; /* Texto blanco */
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            color: #bb86fc; /* Color púrpura claro para el título */
+            margin-bottom: 20px;
+        }
+
+        label {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        input {
+            margin-top: 5px;
+            padding: 10px;
+            width: 200px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            background-color: #333; /* Fondo del input */
+            color: #ffffff; /* Texto blanco para el input */
+        }
+
+        button {
+            margin-top: 15px;
+            padding: 10px 20px;
+            background-color: #bb86fc; /* Color púrpura claro */
+            color: black;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #9b59b6; /* Color púrpura más oscuro al pasar el ratón */
+        }
+
+        #resultado {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #03dac6; /* Color verde claro para el resultado */
+            font-weight: bold;
+            white-space: pre-wrap; /* Mantener espacios en blanco */
+        }
+
+        .container {
+            background: #1e1e1e; /* Fondo gris oscuro para el contenedor */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(255, 255, 255, 0.1);
+            text-align: center;
+        }
+    </style>
+    <script>
+        function invertirNumero() {
+            // Obtener el número desde el input
+            let numero = parseInt(document.getElementById("numero").value);
+            if (isNaN(numero)) {
+                alert("Por favor, ingresa un número válido.");
+                return;
+            }
+
+            let numeroOriginal = numero;
+            let numeroInvertido = 0;
+            let resultado = "\nProceso de inversión:\n";
+
+            while (numero !== 0) {
+                let digito = numero % 10; // Obtiene el último dígito.
+                numeroInvertido = numeroInvertido * 10 + digito; // Agrega el dígito al número invertido.
+                // Imprime el estado actual del número invertido
+                resultado += `Número Original: ${numeroOriginal} | Dígito: ${digito} | Número Invertido: ${numeroInvertido}\n`;
+                numero = Math.floor(numero / 10); // Elimina el último dígito del número original.
+            }
+
+            // Mostrar el resultado
+            resultado += `\nEl número invertido es: ${numeroInvertido}`;
+            document.getElementById("resultado").innerText = resultado;
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Inversión de un Número</h1>
+        <label for="numero">Ingrese un número:</label>
+        <input type="number" id="numero" required>
+        <button onclick="invertirNumero()">Invertir Número</button>
+        <pre id="resultado"></pre>
+    </div>
+</body>
+</html>

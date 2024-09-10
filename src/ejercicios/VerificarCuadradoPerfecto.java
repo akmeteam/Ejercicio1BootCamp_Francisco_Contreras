@@ -2,7 +2,7 @@ package ejercicios;
 
 public class VerificarCuadradoPerfecto {
     public static void main(String[] args) {
-        int numero = 64;
+        int numero = 32;
         double raizCuadrada = Math.sqrt(numero);
         // Usamos Math.floor para truncar la parte decimal
         if (raizCuadrada - Math.floor(raizCuadrada) == 0) {
